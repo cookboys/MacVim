@@ -1,5 +1,6 @@
 syntax on
 set encoding=utf-8 " 文字コードをUTF-8にする
+set tabstop=2 " タブ文字の幅
 set ruler " vim最下層右側に、カーソルの位置を表示させる
 set number         " 行番号を表示する
 set cursorline     " カーソル行の背景色を変える
@@ -11,8 +12,10 @@ set helpheight=999 " ヘルプを画面いっぱいに開く
 set confirm "保存されていないファイルがあるときは終了前に保存確認
 set hidden "保存されていないファイルがあるときでも別のファイルを開くことが出来る
 set autoread "外部でファイルに変更がされた場合は読みなおす
+set noundofile " .un~ファイルを作らない
 set nobackup "ファイル保存時にバックアップファイルを作らない
 set noswapfile "ファイル編集中にスワップファイルを作らない
+set viminfo= " viminfoファイルを作らない
 set hlsearch "検索文字列をハイライトする
 set incsearch "インクリメンタルサーチを行う
 set ignorecase "大文字と小文字を区別しない
@@ -27,7 +30,6 @@ set autoindent "改行時に前の行のインデントを継続する
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set mouse=a " マウスの入力を受け付ける
 set wildmode=full " コマンドラインモードでTABキーによるファイル名補完を有効にする
-set noundofile " .un~ファイルを作らない
 
 
 " deinの設定
@@ -47,12 +49,16 @@ execute 'set runtimepath^=' . s:dein_repo_dir
   call dein#add('mattn/emmet-vim')
   " vimからgitコマンドを使える
   call dein#add('tpope/vim-fugitive')
-  " CoffeeScript Syntax Hiright
-  call dein#add('kchmck/vim-coffee-script')
-  " Typescript Syntax Hiright
-  call dein#add('leafgarland/typescript-vim')
   " Javascript Syntax Hiright
   call dein#add('othree/yajs.vim')
+  " coffeescript syntax hiright
+  call dein#add('kchmck/vim-coffee-script')
+  " typescript syntax hiright
+  call dein#add('leafgarland/typescript-vim')
+  " JSX Syntax Hiright
+  call dein#add('mxw/vim-jsx')
+  " Postcss Syntax Hiright
+  call dein#add('alexlafroscia/postcss-syntax.vim')
 call dein#end()
 call dein#save_state()
 
