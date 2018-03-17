@@ -49,15 +49,15 @@ execute 'set runtimepath^=' . s:dein_repo_dir
   call dein#add('mattn/emmet-vim')
   " vimからgitコマンドを使える
   call dein#add('tpope/vim-fugitive')
-  " Javascript Syntax Hiright
+  " Javascript Syntax Highlight
   call dein#add('othree/yajs.vim')
-  " coffeescript syntax hiright
+  " coffeescript Syntax Highlight
   call dein#add('kchmck/vim-coffee-script')
-  " typescript syntax hiright
+  " typescript Syntax Highlight
   call dein#add('leafgarland/typescript-vim')
-  " JSX Syntax Hiright
+  " JSX Syntax Highlight
   call dein#add('mxw/vim-jsx')
-  " Postcss Syntax Hiright
+  " Postcss Syntax Highlight
   call dein#add('alexlafroscia/postcss-syntax.vim')
 call dein#end()
 call dein#save_state()
