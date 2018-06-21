@@ -1,6 +1,5 @@
 syntax on
 set encoding=utf-8 " 文字コードをUTF-8にする
-set tabstop=2 " タブ文字の幅
 set ruler " vim最下層右側に、カーソルの位置を表示させる
 set number         " 行番号を表示する
 set cursorline     " カーソル行の背景色を変える
