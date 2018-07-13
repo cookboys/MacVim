@@ -1,5 +1,6 @@
 syntax on
 set encoding=utf-8 " 文字コードをUTF-8にする
+set tabstop=2 " タブ文字の幅
 set ruler " vim最下層右側に、カーソルの位置を表示させる
 set number         " 行番号を表示する
 set cursorline     " カーソル行の背景色を変える
@@ -30,7 +31,6 @@ set smartindent "改行時に入力された行の末尾に合わせて次の行
 set mouse=a " マウスの入力を受け付ける
 set wildmode=full " コマンドラインモードでTABキーによるファイル名補完を有効にする
 
-
 " deinの設定
 " dein.vimインストール時に指定したディレクトリをセット
 let s:dein_dir = expand('~/.vim/dein')
@@ -52,12 +52,18 @@ execute 'set runtimepath^=' . s:dein_repo_dir
   call dein#add('othree/yajs.vim')
   " coffeescript Syntax Highlight
   call dein#add('kchmck/vim-coffee-script')
+  " vue Syntax Highlight
+  call dein#add('posva/vim-vue')
   " typescript Syntax Highlight
   call dein#add('leafgarland/typescript-vim')
   " JSX Syntax Highlight
   call dein#add('mxw/vim-jsx')
   " Postcss Syntax Highlight
   call dein#add('alexlafroscia/postcss-syntax.vim')
+  " Stylus Syntax Highlight
+  call dein#add('wavded/vim-stylus')
+  " toml Syntax Highlight
+  call dein#add('cespare/vim-toml')
 call dein#end()
 call dein#save_state()
 
