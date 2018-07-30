@@ -64,6 +64,10 @@ execute 'set runtimepath^=' . s:dein_repo_dir
   call dein#add('wavded/vim-stylus')
   " toml Syntax Highlight
   call dein#add('cespare/vim-toml')
+  " pug Syntax Highlight
+  call dein#add('digitaltoad/vim-pug')
+  " EJS Syntax Highlight
+  call dein#add('nikvdp/ejs-syntax')
 call dein#end()
 call dein#save_state()
 
