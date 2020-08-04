@@ -25,19 +25,27 @@ set softtabstop=2 "連続した空白に対してタブキーやバックスペ�
 set autoindent "改行時に前の行のインデントを継続する
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 
-" deinの設定
-" dein.vimインストール時に指定したディレクトリをセット
-let s:dein_dir = expand('~/.vim/dein')
-" dein.vimの実体があるディレクトリをセット
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-if !isdirectory(s:dein_repo_dir)
-  execute '!git clone git@github.com:Shougo/dein.vim.git' s:dein_repo_dir
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
-execute 'set runtimepath^=' . s:dein_repo_dir
-  call dein#begin(s:dein_dir)
-  call dein#add('Shougo/dein.vim')
+" Required:
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+
+  " Add or remove your plugins here like this:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/deoplete.nvim')
   " Emmet
   call dein#add('mattn/emmet-vim')
   " vimからgitコマンドを使える
@@ -62,13 +70,22 @@ execute 'set runtimepath^=' . s:dein_repo_dir
   call dein#add('digitaltoad/vim-pug')
   " EJS Syntax Highlight
   call dein#add('nikvdp/ejs-syntax')
-call dein#end()
-call dein#save_state()
 
-" 未実装のプラグインがある場合に、インストールをする
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
 endif
+
+"End dein Scripts-------------------------
 
 " 自動的に閉じ括弧を入力
 inoremap { {}<LEFT>
@@ -88,6 +105,3 @@ if has('gui_macvim')
   set guifont=Menlo:h12
   set lines=90 columns=200
 endif
-
-" filetypeの自動検出(最後の方に書いた方がいいらしい)
-filetype plugin indent on
